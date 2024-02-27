@@ -69,26 +69,18 @@ function Menu() {
       <ul className="pizzas">
         {pizzaData.map(pizza => (<Pizza pizzaObj={pizza} key={pizza.name} />))}
       </ul>
-      {/* <Pizza name="Pizza Spinaci"
-        ingredients="Tomato, mozarella, spinach, and ricotta cheese"
-        photoName="pizzas/spinaci.jpg" price={13} />
-      <Pizza
-        name="Pizza Funghi"
-        ingredients="Tomato, mozarella, mushrooms, and onion"
-        price={12}
-        photoName="pizzas/funghi.jpg" /> */}
     </main>
   );
 }
 
-function Pizza(props) {
+function Pizza({ pizzaObj }) {
   return (
     <li className="pizza">
-      <img src={props.pizzaObj.photoName} alt={props.pizzaObj.name} />
+      <img src={pizzaObj.photoName} alt={pizzaObj.name} />
       <div>
-        <h3> {props.pizzaObj.name}</h3>
-        <p>{props.pizzaObj.ingredients}</p>
-        <span>{props.pizzaObj.price + 3}</span>
+        <h3> {pizzaObj.name}</h3>
+        <p>{pizzaObj.ingredients}</p>
+        <span>{pizzaObj.price + 3}</span>
       </div>
     </li>
   );
@@ -112,11 +104,9 @@ function Footer() {
           <p>We're currently open until {closeHour}:00. Come visit us or order online.</p>
           <button className="btn" > Order </button>
         </div>
-      )
-      }
+      )}
     </footer>
   )
-  // return <footer className="footer"> {new Date().toLocaleTimeString()} We're curently open</footer>
 }
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
